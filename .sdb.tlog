@@ -1,0 +1,7 @@
+﻿   en System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   en System.Collections.Generic.List`1.get_Item(Int32 index)
+   en CSI.CSICommon.DockContentCollection.get_Item(Int32 index)
+   en CSI.SAP2000.MainForm.MainForm_ResizeEnd(Object sender, EventArgs e)
+   en System.Windows.Forms.Form.OnResizeEnd(EventArgs e)
+   en System.Windows.Forms.Form.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
