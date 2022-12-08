@@ -68,7 +68,7 @@ ret = SapModel.PropFrame.SetColdI("Bracing-02", "A653SQGr50 ", 0.038, 0.064,0.06
 
 #group profile
 
-sec = ["C38x38x0.45mm", "C38x38x0.85mm", "C64x38x0.45mm", "C64x38x0.85mm", "C89x38x0.45mm", "C89x38x0.85mm", "C120x38x0.45mm", "C120x38x0.85mm",
+sec = ['C38x38x0.45mm', 'C38x38x0.85mm', 'C64x38x0.45mm', "C64x38x0.85mm", "C89x38x0.45mm", "C89x38x0.85mm", "C120x38x0.45mm", "C120x38x0.85mm",
        "2-C38x38x0.45mm", "2-C38x38x0.85mm", "2-C64x38x0.45mm", "2-C64x38x0.85mm", "2-C89x38x0.45mm", "2-C89x38x0.85mm", "2-C120x38x0.45mm", "2-C120x38x0.85mm"]
 
 #draw column
@@ -76,16 +76,31 @@ xi=0
 yi=0
 zi=0
 
-height = [1,2,3,4,5,6]
-ret= ' '
+z_base = []
+z_top =[]
+
+height = [1, 2, 3, 4, 5, 6]
+ret = ' '
 
 for i in sec:
-    for j in height:
-        [ret, col] = SapModel.FrameObj.AddByCoord(xi, yi, zi, xi, yi, j, ret, i, '1','global')
-        xi+=1
-    yi+=3
-    xi=0
+    #print(i)
+    for z in range(0, 800, 50):
+        xi = z
+        yi = 0
+        for g in range(12):
+            for j in height:
+                for k in range(24):
+                    [ret, col] = SapModel.FrameObj.AddByCoord(xi, yi, zi, xi, yi, j, ret, str(i), '1', 'global')
+                    print(i)
+                    xi += 1
+                yi += 3
+                xi = z
 
+column_base_restraint = [True, True, True, False, False, False]
+
+column_top_restraint = [True, True, True, False, True,
+
+                        True]
 
 
 
